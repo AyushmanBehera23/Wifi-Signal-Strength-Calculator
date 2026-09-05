@@ -159,6 +159,19 @@ export function Landing() {
                 <p style={{ color: "var(--color-text-secondary)", margin: "0 0 1rem", fontSize: "0.9375rem" }}>
                   The scanning agent runs on your Mac and exposes a local API at <code className="mono" style={{ background: "var(--color-navy-700)", padding: "0.125rem 0.375rem", borderRadius: "0.25rem" }}>127.0.0.1:8000</code>. Start it before scanning.
                 </p>
+
+                {typeof window !== "undefined" && window.location.protocol === "https:" && (
+                  <div role="alert" style={{ background: "rgba(239, 68, 68, 0.12)", border: "1px solid rgba(239, 68, 68, 0.3)", borderRadius: "0.75rem", padding: "0.875rem 1rem", marginBottom: "1rem", fontSize: "0.8125rem", color: "#fca5a5" }}>
+                    <p style={{ margin: "0 0 0.375rem", fontWeight: 700, color: "#f87171" }}>🔒 Browser HTTPS Security Lock</p>
+                    <p style={{ margin: 0 }}>
+                      You are viewing this site over <strong>HTTPS (Vercel)</strong>. Browsers block HTTP requests to local agents (<code className="mono">http://127.0.0.1:8000</code>) due to Mixed Content policies.
+                    </p>
+                    <p style={{ margin: "0.375rem 0 0", color: "#e2e8f0" }}>
+                      <strong>Fix:</strong> Click the browser lock/shield icon in the address bar ➔ <strong>Site Settings</strong> ➔ set <strong>Insecure content</strong> to <strong>Allow</strong>, then refresh!
+                    </p>
+                  </div>
+                )}
+
                 <div style={{ background: "var(--color-navy-800)", borderRadius: "0.75rem", padding: "1rem", fontFamily: "var(--font-family-mono)", fontSize: "0.8125rem", color: "#86efac", marginBottom: "1rem" }}>
                   <p style={{ margin: "0 0 0.25rem", color: "var(--color-text-muted)" }}># In a new terminal window:</p>
                   <p style={{ margin: 0 }}>cd /path/to/WEB-APP-WIFI-Signal-Detect/backend</p>
