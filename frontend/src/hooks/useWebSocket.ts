@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import type { ConnectionState } from "../services/websocket";
 import { wsClient } from "../services/websocket";
 import type { WSEvent } from "../types/wifi";

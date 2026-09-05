@@ -49,7 +49,7 @@ function HowItWorksStep({ num, title, desc }: { num: number; title: string; desc
 export function Landing() {
   const navigate = useNavigate();
   const { isConnected, isLoading, health, refresh } = useAgentStatus();
-  const { state: scanState, triggerScan, latestScan } = useScan();
+  const { state: scanState, triggerScan } = useScan();
   const [hasScanned, setHasScanned] = useState(false);
 
   useEffect(() => {

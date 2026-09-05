@@ -18,13 +18,18 @@ import type {
 const BASE_URL = "http://127.0.0.1:8000";
 
 class APIError extends Error {
+  status: number;
+  errorCode: string;
+
   constructor(
-    public status: number,
-    public errorCode: string,
+    status: number,
+    errorCode: string,
     message: string
   ) {
     super(message);
     this.name = "APIError";
+    this.status = status;
+    this.errorCode = errorCode;
   }
 }
 

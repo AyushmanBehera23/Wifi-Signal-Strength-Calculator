@@ -13,7 +13,6 @@ import { getChannelAnalysis } from "../services/api";
 import type { ChannelAnalysisResponse } from "../types/wifi";
 import { useAgentStatus } from "../hooks/useAgentStatus";
 import { useScan } from "../hooks/useScan";
-import { useWebSocket } from "../hooks/useWebSocket";
 
 function SummaryCard({ label, value, sub, color }: { label: string; value: string | number; sub?: string; color?: string }) {
   return (
@@ -51,7 +50,6 @@ function StaleDataBanner({ lastScanTime, onRescan, isScanning }: { lastScanTime:
 export function Dashboard() {
   const { health, isConnected, isLoading } = useAgentStatus();
   const { state: scanState, latestScan, triggerScan, loadLatest, lastScanTime } = useScan();
-  const { connectionState } = useWebSocket();
   const [channelData, setChannelData] = useState<ChannelAnalysisResponse | null>(null);
   const [activeChartBand, setActiveChartBand] = useState<"2.4 GHz" | "5 GHz" | "6 GHz">("2.4 GHz");
   const [isLiveMonitoring, setIsLiveMonitoring] = useState(true);

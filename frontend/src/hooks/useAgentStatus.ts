@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getHealth } from "../services/api";
-import type { AgentCapabilities, HealthResponse } from "../types/wifi";
+import type { HealthResponse } from "../types/wifi";
 
 export interface AgentStatus {
   isConnected: boolean;
