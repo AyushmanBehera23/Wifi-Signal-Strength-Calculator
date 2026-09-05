@@ -16,3 +16,4 @@ backend/*.sqlite3
 
 # Logs
 *.log
+.vercel

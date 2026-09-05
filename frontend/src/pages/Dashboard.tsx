@@ -224,7 +224,7 @@ export function Dashboard() {
 
             {typeof window !== "undefined" && window.location.protocol === "https:" && (
               <div style={{ maxWidth: "600px", margin: "1rem auto 1.5rem", textAlign: "left", background: "rgba(239, 68, 68, 0.12)", border: "1px solid rgba(239, 68, 68, 0.3)", borderRadius: "0.75rem", padding: "0.875rem 1rem", fontSize: "0.8125rem", color: "#fca5a5" }}>
-                <p style={{ margin: "0 0 0.375rem", fontWeight 700, color: "#f87171" }}>🔒 Brave / Chrome Local Network Permission (Vercel)</p>
+                <p style={{ margin: "0 0 0.375rem", fontWeight: 700, color: "#f87171" }}>🔒 Brave / Chrome Local Network Permission (Vercel)</p>
                 <p style={{ margin: 0 }}>
                   You are viewing this site over <strong>HTTPS (Vercel)</strong>. Brave/Chrome block local HTTP agent calls (<code className="mono">http://127.0.0.1:8000</code>) by default.
                 </p>
