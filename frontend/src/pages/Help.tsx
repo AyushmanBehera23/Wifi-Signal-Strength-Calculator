@@ -27,14 +27,35 @@ export function Help() {
 
       {/* Quick links */}
       <nav aria-label="Help sections" style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.5rem" }}>
-        {["#setup", "#permissions", "#troubleshoot", "#terminology", "#limitations", "#accessibility", "#privacy"].map((href) => (
+        {["#windows-setup", "#macos-setup", "#permissions", "#troubleshoot", "#terminology", "#limitations", "#accessibility", "#privacy"].map((href) => (
           <a key={href} href={href} className="btn btn-ghost" style={{ fontSize: "0.8125rem", padding: "0.375rem 0.75rem" }}>
-            {href.slice(1).charAt(0).toUpperCase() + href.slice(2)}
+            {href.replace("#", "").split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
           </a>
         ))}
       </nav>
 
-      <Section id="setup" title="macOS Setup">
+      <Section id="windows-setup" title="Windows Setup">
+        <p style={{ color: "var(--color-text-secondary)", lineHeight: 1.7, marginBottom: "1rem" }}>
+          Running on a Windows laptop? Follow these steps using PowerShell:
+        </p>
+        <div style={{ background: "var(--color-navy-800)", borderRadius: "0.75rem", padding: "1rem", fontFamily: "var(--font-family-mono)", fontSize: "0.8125rem", color: "#86efac", marginBottom: "1rem" }}>
+          <p style={{ margin: "0 0 0.25rem", color: "var(--color-text-muted)" }}># 1. Clone repository</p>
+          <p style={{ margin: "0 0 0.5rem" }}>git clone https://github.com/AyushmanBehera23/Wifi-Signal-Strength-Calculator.git</p>
+          <p style={{ margin: "0 0 0.25rem", color: "var(--color-text-muted)" }}># 2. Start Backend (Terminal 1)</p>
+          <p style={{ margin: "0 0 0.25rem" }}>cd Wifi-Signal-Strength-Calculator\backend</p>
+          <p style={{ margin: "0 0 0.25rem" }}>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</p>
+          <p style={{ margin: "0 0 0.25rem" }}>python -m venv .venv</p>
+          <p style={{ margin: "0 0 0.25rem" }}>.\.venv\Scripts\Activate.ps1</p>
+          <p style={{ margin: "0 0 0.25rem" }}>pip install -r requirements.txt</p>
+          <p style={{ margin: "0 0 0.5rem" }}>uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload</p>
+          <p style={{ margin: "0 0 0.25rem", color: "var(--color-text-muted)" }}># 3. Start Frontend (Terminal 2 in a new window)</p>
+          <p style={{ margin: "0 0 0.25rem" }}>cd Wifi-Signal-Strength-Calculator\frontend</p>
+          <p style={{ margin: "0 0 0.25rem" }}>npm install</p>
+          <p style={{ margin: 0 }}>npm run dev</p>
+        </div>
+      </Section>
+
+      <Section id="macos-setup" title="macOS Setup">
         <p style={{ color: "var(--color-text-secondary)", lineHeight: 1.7, marginBottom: "1rem" }}>
           You need Python 3.11+ and a terminal. The agent uses macOS Wi-Fi APIs — no third-party system software required.
         </p>

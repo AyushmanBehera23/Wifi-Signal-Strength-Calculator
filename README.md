@@ -6,13 +6,48 @@ A privacy-first local Wi-Fi diagnostic tool for macOS. Scan nearby networks, vie
 
 ### Prerequisites
 
-- macOS 13 Ventura or later
+- macOS 13+ or Windows 10/11
 - Python 3.11+
 - Node.js 18+ and npm
 - Wi-Fi adapter enabled
-- Location Services enabled for Terminal (required on macOS 13+ for full scan data)
 
-### 1. Start the backend agent
+---
+
+### Instructions for Windows Users
+
+#### Step 1: Open PowerShell and clone the repo
+```powershell
+git clone https://github.com/AyushmanBehera23/Wifi-Signal-Strength-Calculator.git
+cd Wifi-Signal-Strength-Calculator
+```
+
+#### Step 2: Start Backend (Terminal 1)
+```powershell
+cd backend
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+```
+*(Or simply run `start_agent.bat`)*
+
+#### Step 3: Start Frontend (Terminal 2)
+In a new PowerShell window:
+```powershell
+cd Wifi-Signal-Strength-Calculator\frontend
+npm install
+npm run dev
+```
+
+#### Step 4: Open Browser
+Go to **`http://localhost:5173`**.
+
+---
+
+### Instructions for macOS Users
+
+#### 1. Start the backend agent
 
 ```sh
 cd backend
@@ -21,7 +56,7 @@ cd backend
 
 The agent starts at `http://127.0.0.1:8000`. It binds to loopback only — no external network access.
 
-### 2. Start the frontend
+#### 2. Start the frontend
 
 In a new terminal window:
 
