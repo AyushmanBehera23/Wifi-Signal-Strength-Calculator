@@ -38,3 +38,4 @@ echo [OK] Starting local agent on http://127.0.0.1:%PORT%
 echo [OK] Press Ctrl+C to stop.
 echo.
 uvicorn app.main:app --host 127.0.0.1 --port %PORT% --reload
+

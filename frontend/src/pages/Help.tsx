@@ -87,9 +87,10 @@ export function Help() {
 
       <Section id="troubleshoot" title="Troubleshooting">
         {[
-          { q: "The agent is not reachable", a: "Make sure start_agent.sh is running in a terminal. Check that port 8000 is not blocked by another process: lsof -i :8000" },
-          { q: "Scan returns 0 networks", a: "Ensure your Mac's Wi-Fi is turned on. Check Location Services permissions. On macOS 14+, full scan data requires Location Services for Terminal." },
-          { q: "Some fields show 'Not reported'", a: "The scanner could not determine this value from macOS APIs. This is expected — the app never guesses missing values." },
+          { q: "Browser shows '{\"detail\":\"Not Found\"}' at http://127.0.0.1:8000", a: "Port 8000 is the backend API. To view the visual dashboard website, open http://localhost:5173. For API documentation, visit http://127.0.0.1:8000/docs." },
+          { q: "The agent is not reachable", a: "Make sure start_agent.sh (macOS) or start_agent.bat (Windows) is running in a terminal. Check that port 8000 is not blocked by another process: lsof -i :8000" },
+          { q: "Scan returns 0 networks", a: "Ensure your Wi-Fi is turned on. On macOS 14+, full scan data requires Location Services enabled for Terminal. On Windows, ensure the WLAN service is running." },
+          { q: "Some fields show 'Not reported'", a: "The scanner could not determine this value from the system Wi-Fi APIs. This is expected — the app never guesses missing values." },
           { q: "The frontend cannot connect to the agent", a: "Check that the agent is running and your browser is accessing localhost:5173. The agent only allows connections from localhost." },
         ].map(({ q, a }) => (
           <details key={q} style={{ marginBottom: "0.75rem" }}>

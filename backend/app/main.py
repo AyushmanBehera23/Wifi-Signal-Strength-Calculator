@@ -65,6 +65,19 @@ app.include_router(channels.router, prefix="/api", tags=["channels"])
 app.include_router(history.router, prefix="/api", tags=["history"])
 
 
+@app.get("/", tags=["root"])
+async def root():
+    """Friendly landing endpoint explaining how to access the web frontend and API."""
+    return {
+        "name": "Wi-Fi Signal Analyzer Agent",
+        "status": "online",
+        "web_dashboard": "http://localhost:5173",
+        "api_documentation": "/docs",
+        "health_check": "/api/health",
+        "note": "Open http://localhost:5173 in your browser to view the dashboard."
+    }
+
+
 @app.websocket("/ws")
 async def websocket_endpoint(ws: WebSocket) -> None:
     """
